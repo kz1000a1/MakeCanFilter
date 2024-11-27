@@ -1,4 +1,5 @@
 // All CAN IDs and interval in msec on CAN bus.
+//  You can calculate interval from candump log file.
 
 uint16_t periods[][2] = {
 // { 0x040, 11},
