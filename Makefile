@@ -11,6 +11,7 @@
 
 # SOURCES: list of sources in the user application
 SOURCES = MakeCanFilter.c
+TARGET = MakeCanFilter
 
 #######################################
 # binaries
@@ -19,7 +20,7 @@ CC = cc
 #######################################
 
 # default action: build the user application
-all: MakeCanFilter
+all: $(TARGET)
 
 #######################################
 # build the user application
@@ -28,15 +29,15 @@ all: MakeCanFilter
 # list of user program objects
 OBJECTS = $(SOURCES:.c=.o)
 
-MakeCanFilter: $(OBJECTS)
-	$(CC) -o MakeCanFilter $(OBJECTS)
+$(TARGET): $(OBJECTS)
+	$(CC) -o $(TARGET) $(OBJECTS)
 
 
 %.o: %.c
-	$(CC) $(CFLAGS) -Os -c -o $@ $^
+	$(CC) -c -o $@ $^
 
 # delete all user application files, keep the libraries
 clean:
-		-rm *.o
+		-rm $(OBJECTS) $(TARGET)
 
 .PHONY: clean all cubelib
