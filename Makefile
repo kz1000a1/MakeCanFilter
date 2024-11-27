@@ -29,7 +29,7 @@ all: MakeCanFilter
 OBJECTS = $(SOURCES:.c=.o)
 
 MakeCanFilter: $(OBJECTS)
-        $(CC) -o MakeCanFilter $(OBJECTS)
+	$(CC) -o MakeCanFilter $(OBJECTS)
 
 
 %.o: %.c
