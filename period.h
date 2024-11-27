@@ -1,3 +1,5 @@
+// All CAN IDs and interval in msec on CAN bus.
+
 uint16_t periods[][2] = {
 // { 0x040, 11},
 // { 0x048, 11},
