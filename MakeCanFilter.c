@@ -117,7 +117,10 @@ int main(void) {
 
   for (r = 1; r <= n / 2; r++) {
     do {
-      if (((!(n % 2)) && (r != n / 2 || ids[0] == top)) || n % 2) {
+      // if (((!(n % 2)) && (r != n / 2 || ids[0] == top)) || n % 2) {
+      if (!(n % 2) && r == n / 2 && ids[0] != top) {
+        break;
+      }
         calc_mask(ids, n, r, filt_mask);
         filt_id[0] = ids[0];
         filt_id[1] = ids[r];
@@ -136,7 +139,7 @@ int main(void) {
 
         printf("0x%03x 0x%03x ", filt_mask[0], filt_mask[1]);
         printf("\n");
-      }
+      // }
     } while (next_combination(0, n, r, ids));
     rotate(0, 0, n, ids);
   }
