@@ -107,7 +107,6 @@ void calc_result(uint16_t filt_id[], uint16_t filt_mask[]) {
 }
 
 int main(void) {
-  // int v[] = {1, 2, 3, 4, 5};
   size_t i;
   size_t n = sizeof(ids) / sizeof(ids[0]);
   size_t r = 1;
@@ -117,29 +116,29 @@ int main(void) {
 
   for (r = 1; r <= n / 2; r++) {
     do {
-      // if (((!(n % 2)) && (r != n / 2 || ids[0] == top)) || n % 2) {
       if (!(n % 2) && r == n / 2 && ids[0] != top) {
         break;
       }
-        calc_mask(ids, n, r, filt_mask);
-        filt_id[0] = ids[0];
-        filt_id[1] = ids[r];
-        calc_result(filt_id, filt_mask);
-        printf("| ");
-        for (i = 0; i < r; i++) {
-          printf("0x%03x ", ids[i]);
-        }
+      
+      calc_mask(ids, n, r, filt_mask);
+      filt_id[0] = ids[0];
+      filt_id[1] = ids[r];
+      calc_result(filt_id, filt_mask);
+      printf("| ");
+      for (i = 0; i < r; i++) {
+        printf("0x%03x ", ids[i]);
+      }
 
-        printf("| ");
+      printf("| ");
 
-        for (i = r; i < n; i++) {
-          printf("0x%03x ", ids[i]);
-        }
-        printf("| ");
+      for (i = r; i < n; i++) {
+        printf("0x%03x ", ids[i]);
+      }
+      printf("| ");
 
-        printf("0x%03x 0x%03x ", filt_mask[0], filt_mask[1]);
-        printf("\n");
-      // }
+      printf("0x%03x 0x%03x ", filt_mask[0], filt_mask[1]);
+      printf("\n");
+      
     } while (next_combination(0, n, r, ids));
     rotate(0, 0, n, ids);
   }
