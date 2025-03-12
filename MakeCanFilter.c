@@ -84,7 +84,7 @@ void calc_mask(uint16_t ids[], size_t n, size_t r, uint16_t filt_mask[]) {
   for (int i = 0; i < 11; i++) {
     mask = 1 << i;
     for (int j = r; j < n; j++) {
-      if ((ids[0] & mask) != (ids[j] & mask)) {
+      if ((ids[r] & mask) != (ids[j] & mask)) {
         mask = 0;
         break;
       }
