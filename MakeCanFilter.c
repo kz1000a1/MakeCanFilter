@@ -136,7 +136,7 @@ int main(void) {
       }
       printf("| ");
 
-      printf("0x%03x(0x%03x) 0x%03x(0x%03x)", filt_mask[0], ~(filt_mask[0]), filt_mask[1], ~(filt_mask[1]));
+      printf("0x%03x(0x%03x) 0x%03x(0x%03x)", filt_mask[0], (~filt_mask[0]) & 0x7ff, filt_mask[1], (~filt_mask[1]) & 0x7ff);
       printf("\n");
       
     } while (next_combination(0, n, r, ids));
